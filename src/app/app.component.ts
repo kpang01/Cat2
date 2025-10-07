@@ -10,12 +10,18 @@ export class AppComponent implements OnInit {
   likedCats: string[] = [];
   currentIndex = 0;
   finished = false;
+  loading = true; // Add loading state
 
   async ngOnInit() {
+    this.loading = true; // Set loading to true before fetching
+    // Simulate network delay
+    await new Promise(resolve => setTimeout(resolve, 1500));
+
     // Load 10 random cat images
     for (let i = 0; i < 10; i++) {
       this.cats.push(`https://cataas.com/cat?${Math.random()}`);
     }
+    this.loading = false; // Set loading to false after fetching
   }
 
   onSwipe(direction: 'left' | 'right') {

@@ -1,7 +1,12 @@
-<div class="container" *ngIf="!finished">
+<div class="container" *ngIf="loading">
+  <p>Loading cats...</p>
+</div>
+
+<div class="container" *ngIf="!loading && !finished">
   <app-cat-card
     [catUrl]="cats[currentIndex]"
-    (swipe)="onSwipe($event)">
+    (swipeleft)="onSwipe('left')"
+    (swiperight)="onSwipe('right')">
   </app-cat-card>
   <div class="info">
     <p>Swipe left to dislike, right to like 🐾</p>

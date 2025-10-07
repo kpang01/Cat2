@@ -1,3 +1,6 @@
 <div class="card" (swipeleft)="onSwipe('left')" (swiperight)="onSwipe('right')">
   <img [src]="catUrl" alt="Cat" />
+  <div class="actions">
+    <i class="fa-heart" [class.fas]="liked" [class.far]="!liked" (click)="toggleLike()"></i>
+  </div>
 </div>
